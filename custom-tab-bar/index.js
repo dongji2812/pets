@@ -18,9 +18,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onChange({ detail }){  
+    onChange({ detail }){  //detail是事件对象中的属性，属性值是van-tabbar-item标签中的name。
       wx.switchTab({
-        url: `/pages/${detail}/index`,
+        url: `/pages/${detail}/index`, 
       })
     }  
   }
