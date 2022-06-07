@@ -1,0 +1,44 @@
+<view id="mine">
+  <view class="header">
+    <van-notice-bar color="#ffffff" background="rgba(0, 0, 0, 0.2)" left-icon="volume-o" text="宠物帮已经帮助 7777 只宠物找到了属于自己的家园。" />
+    <view wx:if="{{ userInfo }}">
+      <image class="image" src="{{ userInfo.avatarUrl }}" />
+      <view class="name"> {{ userInfo.nickName }} </view>
+    </view>
+    <view wx:else >
+      <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+        <image class="avatar" src="{{avatarUrl}}"></image>
+      </button>
+    </view>
+
+    <view class="nav">
+      <view class="nav-item">
+        <view>{{ userInfo.money || 0 }}</view>
+        <view class="nav-item-title">余额</view>
+      </view>
+      <view class="nav-item">
+        <view>{{ userInfo.loveValue || 0 }}</view>
+        <view class="nav-item-title">爱心值</view>
+      </view>
+      <view class="nav-item">
+        <view>{{ userInfo.message || 0 }}</view>
+        <view class="nav-item-title">消息</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="group">
+    <van-cell-group>
+      <van-cell icon="shop-collect-o" title="我的云养" data-url="cloudRalse" bind:tap="navigateTo" is-link />
+      <van-cell icon="like-o" title="我的关注" data-url="mineLike" bind:tap="navigateTo" is-link />
+      <van-cell icon="cart-circle-o" title="我的订单" is-link />
+    </van-cell-group>
+  </view>
+
+  <view class="group">
+    <van-cell-group>
+      <van-cell icon="user-o" data-url="userInfo" bind:tap="navigateTo" title="个人资料" is-link />
+      <van-cell wx:if="{{ userInfo }}" bind:tap="close" icon="close" title="退出登录" is-link />
+    </van-cell-group>
+  </view>
+</view>
