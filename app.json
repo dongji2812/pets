@@ -2,7 +2,9 @@
   "pages": [
     "pages/mine/index",
     "pages/home/index",
-    "pages/cloudRalse/index"
+    "pages/myCloudRalse/index",
+    "pages/myInfo/index",
+    "pages/myLike/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,13 +14,16 @@
   },
   "tabBar": {
     "custom": true,
-    "list": [{
-      "pagePath": "pages/home/index",
-      "text": "首页"
-    }, {
-      "pagePath": "pages/mine/index",
-      "text": "我的"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

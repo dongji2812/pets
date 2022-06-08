@@ -1,16 +1,18 @@
 <view id="mine">
+  <!-- 头部绿色区域。 -->
   <view class="header">
     <van-notice-bar color="#ffffff" background="rgba(0, 0, 0, 0.2)" left-icon="volume-o" text="宠物帮已经帮助 7777 只宠物找到了属于自己的家园。" />
+    <!-- van-notice-bar是通知栏；left-icon表示左侧图标，这里是喇叭的图标。 -->
     <view wx:if="{{ userInfo }}">
       <image class="image" src="{{ userInfo.avatarUrl }}" />
-      <view class="name"> {{ userInfo.nickName }} </view>
     </view>
-    <view wx:else >
-      <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+    <view wx:else > <!-- 自己在微信开放文档看的获取头像的最新版方法。 -->
+      <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar"> <!-- chooseavatar表示用户选择头像事件。 -->
         <image class="avatar" src="{{avatarUrl}}"></image>
       </button>
     </view>
 
+    <!-- 头部区域中三个展示标识。 -->
     <view class="nav">
       <view class="nav-item">
         <view>{{ userInfo.money || 0 }}</view>
@@ -27,18 +29,22 @@
     </view>
   </view>
 
+  <!-- 中间跳转页面。 -->
   <view class="group">
+    <!-- Cell是单元格，CellGroup可以为Cell提供上下外边框。-->
     <van-cell-group>
-      <van-cell icon="shop-collect-o" title="我的云养" data-url="cloudRalse" bind:tap="navigateTo" is-link />
-      <van-cell icon="like-o" title="我的关注" data-url="mineLike" bind:tap="navigateTo" is-link />
+      <van-cell icon="shop-collect-o" title="我的云养" bind:tap="navigateTo" data-url="myCloudRalse" is-link /> 
+      <!-- data-xx是传递给事件对象的属性；is-link属性表示单元格右侧显示箭头。-->
+      <van-cell icon="like-o" title="我的关注" bind:tap="navigateTo" data-url="myLike" is-link />
       <van-cell icon="cart-circle-o" title="我的订单" is-link />
     </van-cell-group>
   </view>
 
+  <!-- 最下面个人信息。 -->
   <view class="group">
     <van-cell-group>
-      <van-cell icon="user-o" data-url="userInfo" bind:tap="navigateTo" title="个人资料" is-link />
-      <van-cell wx:if="{{ userInfo }}" bind:tap="close" icon="close" title="退出登录" is-link />
+      <van-cell icon="user-o" title="个人资料" bind:tap="navigateTo" data-url="myInfo" is-link />
+      <van-cell wx:if="{{ userInfo }}" icon="close" title="退出登录" bind:tap="logout" is-link />
     </van-cell-group>
   </view>
 </view>

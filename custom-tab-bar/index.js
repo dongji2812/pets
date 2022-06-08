@@ -11,16 +11,17 @@ Component({
    * 组件的初始数据
    */
   data: {
-    active: 'home',
+    active: 'home', //设置默认选中的标签栏。
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    onChange({ detail }){  //detail是事件对象中的属性，属性值是van-tabbar-item标签中的name。
+    onChange(event){  
       wx.switchTab({
-        url: `/pages/${detail}/index`, 
+        url: `/pages/${event.detail}/index`, 
+        //默认情况下，event.detail的值为当前选中项的索引；标签指定name的情况下，event.detail的值为当前选中项的name。
       })
     }  
   }

@@ -1,4 +1,5 @@
-<van-tabbar active="{{ active }}" bind:change="onChange" active-color="#07c160">
+<van-tabbar active="{{ active }}" bind:change="onChange" active-color="#07c160"> 
+  <!-- active表示默认选中的标签栏；change事件表示当标签栏发生变化时；active-color是自定义颜色。 -->
   <van-tabbar-item name="home" icon="home-o">首页</van-tabbar-item>
   <van-tabbar-item name="mine" icon="friends-o">我的</van-tabbar-item>
 </van-tabbar>
