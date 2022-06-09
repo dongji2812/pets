@@ -18,7 +18,7 @@ exports.main = async (event, context) => {
   //console.log(data) 控制台并不显示。
 
   if (data.length === 0) { //数据库中没有用户信息，则为该用户进行注册。
-    const { _id } = await userInfo.add({ //返回结果是对象的形式，包含data属性，解构出data。
+    const { _id } = await userInfo.add({ //返回结果是对象的形式，包含_id属性，解构出_id。
       data: { //还会自动添加_id属性。
         _openid: OPENID,
         avatarUrl,

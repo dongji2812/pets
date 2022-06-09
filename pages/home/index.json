@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "宠物领养中心",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#07c160",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "ani-card": "../../components/animal-card/index"
+  }
 }

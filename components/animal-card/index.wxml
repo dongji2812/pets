@@ -1,0 +1,22 @@
+<!-- 宠物的基本信息，封装的组件。 -->
+<view class="card" bind:tap="toInfo"> 
+
+    <!-- 左侧宠物图片。 -->
+    <image class="card-left" src="{{ animalData.avatarUrl[0] }}" />
+    
+    <!-- 右侧宠物基本信息。 -->
+    <view class="card-right">
+        <view class="card-right-title">
+            <slot name='icon'></slot> <!-- 插槽，通过插槽实现更自由的自定义组件。使用多slot时，需要在js文件中声明启用多插槽，即multipleSlots: true-->
+            {{ animalData.title }}
+            <slot name='tag'></slot> <!-- 多个 slot ，以不同的 name 来区分。 -->
+        </view>
+
+        <view class="card-right-text">{{ animalData.introduction }}</view>
+        <view class="card-right-tag">
+            <van-tag class="card-right-tag-item" round type="primary">{{animalData.immune ? '已' : '未'}}免疫</van-tag>
+            <van-tag class="card-right-tag-item" round type="success">{{animalData.insectRepellent ? '已' : '未'}}驱虫</van-tag>
+            <van-tag class="card-right-tag-item" round type="warning">{{animalData.sterilization? '已' : '未'}}绝育</van-tag>
+        </view>
+    </view>
+</view>

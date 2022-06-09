@@ -1,0 +1,46 @@
+.card{
+    box-sizing: border-box;
+    padding: 20rpx;
+    display: flex;
+    height: 360rpx;
+    margin-bottom: 20rpx;
+    box-shadow: 0 4rpx 24rpx 0 rgb(0 0 0 / 10%);
+    position: relative;
+  }
+  
+  .card-left{
+    height: 320rpx;
+    width: 280rpx;
+    border-radius: 20rpx;
+  }
+  
+  .card-right{
+    box-sizing: border-box;
+    height: 340rpx;
+    flex: 1;
+    padding: 20rpx;
+  }
+  
+  .card-right-title {
+    font-size: 34rpx;
+  }
+  
+  .card-right-tag{
+    position: absolute;
+    bottom: 40rpx;
+  }
+  
+  .card-right-text{
+    margin: 20rpx 0rpx;
+    font-size: 28rpx;
+    color: #ccc;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+  
+  .card-right-tag-item{
+    margin: 0rpx 20rpx;
+  }
