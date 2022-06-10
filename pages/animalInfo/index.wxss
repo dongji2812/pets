@@ -1,0 +1,51 @@
+#animalInfo{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper{
+    width: 100%;
+    height: 620rpx;
+  }
+  
+  .swiper-item-image{
+    height: 100%;
+    width: 100%;
+  }
+  
+  .header{
+    margin: 20rpx 0;
+    padding: 20rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    display: flex;
+    justify-content: space-between; /* 两端对齐。两栏布局有很多种写法，如浮动、flex、两端对齐，只要能实现效果就行，随意自己选择。 */
+  }
+  
+  .header-title{
+    font-size: 38rpx;
+  }
+  
+  .header-btn> .van-button{ /* vant的按钮类名都是van-button，这里指定header-btn下面的按钮。*/
+   background: none; /* 清除按钮默认的背景和边框。 */
+   border: 0rpx;
+   height: 30rpx; /* 修改按钮默认的高度。 */
+  }
+  
+  .info-card{
+    box-sizing: border-box;
+    width: calc(100% - 40rpx); /* 父元素宽度减去40rpx，父元素是页面宽度。 */
+    box-shadow: 0 4rpx 24rpx 0 rgb(0 0 0 / 10%);
+    border-radius: 10rpx;
+    margin: 0 auto;
+    height: 200rpx;
+    display: flex;
+    flex-wrap: wrap; /* flex排列默认不换行，这里设置为换行。 */
+    align-items: center;
+    padding-left: 20rpx; 
+  }
+  
+  .info-card>view{
+    width: calc(100% / 3); /* 父元素宽度除以3，父元素是上面的info-card。 */
+  }

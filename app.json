@@ -4,7 +4,8 @@
     "pages/mine/index",
     "pages/myCloudRalse/index",
     "pages/myInfo/index",
-    "pages/myLike/index"
+    "pages/myLike/index",
+    "pages/animalInfo/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,49 @@
+<!-- 宠物的详细信息页面。 -->
+<view id="animalInfo">
+    <swiper class="swiper" indicator-dots="{{ true }}" indicator-color="rgba(255,255,255, 0.4)" indicator-active-color="#fff" circular="{{ true }}">
+      <block wx:for="{{ animalInfo.avatarUrl }}" wx:key="index">
+        <swiper-item>
+          <image class="swiper-item-image" src="{{ item }}" />
+        </swiper-item>
+      </block>
+    </swiper>
+  
+    <view class="header">
+      <view class="header-title">{{animalInfo.title}}</view>
+      <van-button class="header-btn" open-type="share" icon="share-o" plain /> <!--js文件中哪里用到分享？ -->
+      <!-- vant的组件，属性open-type="share"，plain表示为朴素按钮。-->
+    </view>
+  
+    <view class="info-card">
+      <view>
+        <van-icon color="#ff6034" name="medal-o" />
+        {{ animalInfo.varieties }}
+      </view>
+      <view>
+        <van-icon color="#ff6034" name="medal-o" />
+        {{ animalInfo.sex ? '男' : '女'}}
+      </view>
+      <view>
+        <van-icon color="#ff6034" name="medal-o" />
+        {{ animalInfo.age }}个月
+      </view>
+      <view>
+        <van-icon color="#ff6034" name="medal-o" />
+        {{ animalInfo.immune ? '已' : '未' }}注射
+      </view>
+      <view>
+        <van-icon color="#ff6034" name="medal-o" />
+        {{ animalInfo.insectRepellent ? '已' : '未' }}驱虫
+      </view>
+      <view>
+        <van-icon color="#ff6034" name="medal-o" />
+        {{ animalInfo.sterilization ? '已' : '未' }}绝育
+      </view>
+    </view>
+  
+    <van-goods-action> <!-- 默认包含客服、购物车、加入购物车、立即购买等。 -->
+      <van-goods-action-icon icon="home-o" text="返回首页" bind:click="backHome" />
+      <van-goods-action-icon icon="{{ animalInfo.like ? 'like' : 'like-o'}}" text="{{ animalInfo.like ? '取消关注' : '关注'}}" bind:click="onLike" />
+      <van-goods-action-button text="云养TA" type="warning" bind:click="toPay" />
+    </van-goods-action>
+</view>

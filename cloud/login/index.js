@@ -2,7 +2,7 @@
 const cloud = require('wx-server-sdk')
 
 cloud.init({
-  env: 'cloud1-7g2qc47qc4e54e25' //写成cloud.DYNAMIC_CURRENT_ENV变量的形式可以自动获取当前环境。为何报错？
+  env: cloud.DYNAMIC_CURRENT_ENV //变量形式自动获取当前环境。
 })
 
 // 云函数入口函数

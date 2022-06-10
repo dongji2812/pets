@@ -2,9 +2,9 @@
 Page({
   data: {
     windowHeight: 0,
-    swiper: ['../../assets/image/swiper1.jpg', '../../assets/image/swiper2.jpg', '../../assets/image/swiper3.jpg'], //初始值是静态路径。
-    active: 3, //选中的宠物类型，默认为3。
-    tabList: [{ //自己创建的静态数组，不会变化。
+    swiper: ['../../assets/image/swiper1.jpg', '../../assets/image/swiper2.jpg', '../../assets/image/swiper3.jpg'], //静态数组。
+    active: 3, //宠物类型，默认为3，选中3。
+    tabList: [{ //静态数组。
       title: '猫猫',
       id: 3
     }, {
@@ -25,9 +25,15 @@ Page({
       active: 'home'
     })
 
+    const { windowHeight } = wx.getWindowInfo() 
+    this.setData({
+      windowHeight: windowHeight - 50 //每个手机的窗口高度减去tabBar的高度，50是看的调试器中的高度，单位是px。
+    })
+
     this.getAnimalList()
   },
 
+  /* 获取宠物列表。 */
   async getAnimalList () {
     const {active, pageSize, pageIndex, animalList} = this.data
 
@@ -39,21 +45,38 @@ Page({
         pageSize
       }
     })
+    //console.log(data) data是数组的形式，每个数组元素是对象的形式。
 
     this.setData({
-      animalList: [...animalList, ...data]
+      animalList: [...animalList, ...data],
+      triggered: false //若刷新被开启，需要手动关闭刷新。
     })
   },
 
+  /* 上拉触底加载。 */
   scrolltolower () {
-
+    this.setData({
+      pageIndex: this.data.pageIndex += 1
+    })
+    this.getAnimalList()
   },
 
+  /* 下拉刷新。 */
   refresherrefresh () {
-
+    this.setData({
+      pageIndex: 1,
+      animalList: []
+    })
+    this.getAnimalList() //重新获取宠物列表。
   },
 
-  setActive () {
-
+  /* 选择宠物类型。 */
+  setActive (event) {
+    this.setData({
+      active: event.currentTarget.dataset.id,
+      pageIndex: 1, 
+      animalList: [] 
+    })
+    this.getAnimalList()
   },
 })
