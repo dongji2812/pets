@@ -4,7 +4,7 @@
     
     <!-- swiper轮播图区域。 -->
     <swiper indicator-dots="{{ true }}" indicator-color="rgba(255,255,255, 0.4)" indicator-active-color="#ff6034" previous-margin="40rpx" next-margin="40rpx" circular="{{ true }}">
-      <block wx:for="{{ swiper }}" wx:key="*this"> <!-- 这里是复制swiper得到的，*this是？ -->
+      <block wx:for="{{ swiper }}" wx:key="index"> <!-- wx:key="*this"。这里是复制swiper得到的，*this是？ -->
         <swiper-item class="swiper-item">
           <image src="{{ item }}"></image>
         </swiper-item>

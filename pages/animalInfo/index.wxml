@@ -1,4 +1,4 @@
-<!-- 宠物的详细信息页面。 -->
+<!-- 某个宠物的详细信息页面。 -->
 <view id="animalInfo">
     <swiper class="swiper" indicator-dots="{{ true }}" indicator-color="rgba(255,255,255, 0.4)" indicator-active-color="#fff" circular="{{ true }}">
       <block wx:for="{{ animalInfo.avatarUrl }}" wx:key="index">
@@ -10,7 +10,7 @@
   
     <view class="header">
       <view class="header-title">{{animalInfo.title}}</view>
-      <van-button class="header-btn" open-type="share" icon="share-o" plain /> <!--js文件中哪里用到分享？ -->
+      <van-button class="header-btn" open-type="share" icon="share-o" plain /> <!--点击按钮可以实现转发功能。 -->
       <!-- vant的组件，属性open-type="share"，plain表示为朴素按钮。-->
     </view>
   

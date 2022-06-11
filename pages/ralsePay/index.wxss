@@ -1,0 +1,28 @@
+#pay{
+    width: 100%;
+    height: auto;
+    background: #e6e6e6; /* 整体背景灰色。 */
+    margin-bottom: 100rpx;
+}
+  
+.header{
+    background: #fff; /* 头部背景白色。 */
+    display: flex;
+    align-items: center;
+    padding: 20rpx;
+}
+  
+.header-right{
+    box-sizing: border-box;
+    padding-left: 20rpx;
+}
+  
+.header-right-title{
+    font-size: 34rpx;
+}
+  
+.header-right-text{
+    font-size: 28rpx;
+    color: rgb(155, 155, 155); /* 介于白和黑之间的灰色。 */
+    margin-top: 10rpx;
+}  

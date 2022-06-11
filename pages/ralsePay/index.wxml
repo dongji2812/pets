@@ -1,0 +1,27 @@
+<view id="pay">
+    <view class="header">
+      <van-image round width="4rem" height="4rem" src="{{animalInfo.avatarUrl[0]}}" /> 
+      <!-- avatarUrl为数组，包含该宠物的多张图片，这里展示第一张即可。 -->
+  
+      <view class="header-right">
+        <view class="header-right-title">
+          {{ animalInfo.title }}
+          <van-tag plain round slot="tag" type="primary" style="margin-right:10rpx;">{{ animalInfo.varieties }}</van-tag>
+          <van-tag plain round slot="tag" color="#ff6034">{{ animalInfo.age }}个月</van-tag> <!-- 这两个tag标签不用加slot吧？ -->
+          <!-- plain表示空心. -->
+        </view>
+        <view class="header-right-text">我急需的物品[ 猫粮狗粮小玩具 ]</view>
+      </view>
+    </view>
+  
+    <view style="margin-top: 20rpx;background: #fff;">
+      <ani-goods-card bind:setCheckedNum="setCheckedNum" wx:for="{{ goodsList }}" wx:key="index" goodsData="{{ item }}"/>
+      <!-- 在父组件中使用ani-goods-card子组件。--> 
+      <!-- goodsData是父组件需要向子组件传递的数据。父向子通信。 -->
+      <!-- 父组件中设置自定义事件setCheckedNum，父组件中向子组件传入该自定义事件，等待子向父传递数据，在js文件中处理得到的数据。子向父通信。 -->
+    </view>
+  
+    <van-submit-bar price="{{ totalPrice }}" button-text="提交订单" bind:submit="pay" tip="{{ true }}"> <!-- submit提交时，触发事件。 -->
+      <radio bind:tap="changeChecked" checked="{{ checked }}" color="#ff6034"/>全选 <!-- radio是单选按钮。 -->
+    </van-submit-bar>
+</view>

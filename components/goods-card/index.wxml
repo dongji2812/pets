@@ -1,0 +1,25 @@
+<!-- 该组件是两栏flex布局，左边是单选按钮，右边是card。 -->
+<view class="goods-card">
+
+    <!-- 左边单选按钮。 -->
+    <radio class="goods-card-radio" color="#ff6034" disabled="{{ goodsData.amount <= 0 }}" checked="{{ goodsData.amount <= 0 ? false : goodsData.checked }}" bind:tap="changeChecked" />
+    <!-- disabled为true表示按钮禁止使用；
+         checked为checked/true表示已选中，false表示未选中。<= 0时一定是false，>0时要看goodsData.checked的值为true还是false。 -->
+    <!-- bind:tap中tap是原生事件，当点击单选按钮时触发。 -->
+  
+  
+    <!-- 右边card。 -->
+    <van-card custom-class="ani-goods-card" style="flex: 1;" thumb="{{ goodsData.showPictures }}" tag="{{ goodsData.amount > 0 ? '' : '售罄'  }}" price="{{ goodsData.price }}" title="{{ goodsData.title }}">
+    <!-- price是商品的价格，thumb是商品的图片，tag是商品图片上显示的标签，title是商品的标题。 -->
+    <!-- custom-class是根节点样式类，通过该类名设置样式，比组件默认样式的优先级高。 -->
+  
+      <!-- card中的加减按钮。 -->
+      <view slot="num"> <!-- 通过插槽自定义组件结构。 -->
+        <van-stepper disabled="{{ goodsData.amount <= 0 }}" style="position: absolute;right: 0rpx;top: 75%;" input-width="42rpx" button-size="30rpx" min="1" max="{{ goodsData.amount }}" theme="round" step="1" value="{{ goodsData.value }}" bind:change="changeValue" />
+        <!-- 写的时候，样式别写行内样式，建个类名写样式。 -->
+        <!-- step是步长，点击一次加减1。value是商品的购买数量，通过data中的goodsData.value实时更新。-->
+        <!-- value值改变时触发change事件。 -->
+      </view>
+    </van-card>
+  
+</view>

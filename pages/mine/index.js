@@ -22,14 +22,15 @@ Page({
     })
 
     /* 调用login云函数，传入data参数，并得到返回结果{ result: { data } }。 */
-    const { result: { data } } = await wx.cloud.callFunction({
+    const { result: { data } } = await wx.cloud.callFunction({ 
     //const res = await wx.cloud.callFunction({
+    //函数的返回值是对象的形式，对象中包含result属性；result对象中包含data属性；data对象是服务器返回的满足查询方法的某条数据。
       name: 'login',
       data: {
         avatarUrl
       }
     })
-    //console.log(res) 返回的对象中确实需要两层解构，才能得到data。
+    //console.log(res) 返回的对象中确实需要两层解构，才能得到data。data对象是服务器返回的满足查询方法的某条数据。
 
     wx.setStorageSync('userInfo', data)
 

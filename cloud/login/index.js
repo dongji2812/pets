@@ -5,12 +5,12 @@ cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV //变量形式自动获取当前环境。
 })
 
-// 云函数入口函数
-exports.main = async (event, context) => {
+const db = cloud.database()
+exports.main = async (event, context) => { // 云函数入口函数
   const {OPENID} = cloud.getWXContext() //OPENID是用户的唯一标识。
   const {avatarUrl} = event
 
-  const db = cloud.database()
+
   const userInfo = db.collection('userInfo')
   const {data} = await userInfo.where({ //where和doc都是查询，where的参数是对象的形式；再get；返回结果是对象的形式，包含data属性，解构出data。
     _openid: OPENID

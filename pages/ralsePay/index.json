@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "开始云养",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#ff6034",
+  "usingComponents": {
+    "van-image": "@vant/weapp/image/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index",
+    "ani-goods-card": "/components/goods-card/index"
+  }
+}

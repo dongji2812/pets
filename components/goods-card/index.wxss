@@ -1,0 +1,15 @@
+.goods-card{
+    margin-bottom: 20rpx;
+    border-bottom: 2rpx solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    background: #fff;
+}
+  
+.goods-card-radio{
+    margin: 0 20rpx;
+}
+  
+.ani-goods-card{
+    background-color: #fff;
+}
