@@ -27,6 +27,12 @@
   margin-left: -60rpx;
 }
 
+.name{
+  text-align: center;
+  color: #fff;
+  margin-top: 10rpx;
+}
+
 .avatar-wrapper { /* 未登录前的按钮。 */
   padding: 0;
   width: 56px !important;

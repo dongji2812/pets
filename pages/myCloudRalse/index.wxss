@@ -1,1 +1,10 @@
-/* pages/cloudRalse/index.wxss */
+#cloudRalse{
+    box-sizing: border-box;
+    padding: 20rpx;
+  }
+  
+.tab{
+    display: block;
+    width: 100%;
+    height: 120rpx;
+}

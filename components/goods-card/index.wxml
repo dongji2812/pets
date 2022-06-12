@@ -15,8 +15,7 @@
   
       <!-- card中的加减按钮。 -->
       <view slot="num"> <!-- 通过插槽自定义组件结构。 -->
-        <van-stepper disabled="{{ goodsData.amount <= 0 }}" style="position: absolute;right: 0rpx;top: 75%;" input-width="42rpx" button-size="30rpx" min="1" max="{{ goodsData.amount }}" theme="round" step="1" value="{{ goodsData.value }}" bind:change="changeValue" />
-        <!-- 写的时候，样式别写行内样式，建个类名写样式。 -->
+        <van-stepper class="van-stepper" disabled="{{ goodsData.amount <= 0 }}" input-width="42rpx" button-size="30rpx" min="1" max="{{ goodsData.amount }}" theme="round" step="1" value="{{ goodsData.value }}" bind:change="changeValue" />
         <!-- step是步长，点击一次加减1。value是商品的购买数量，通过data中的goodsData.value实时更新。-->
         <!-- value值改变时触发change事件。 -->
       </view>

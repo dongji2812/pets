@@ -1,2 +1,27 @@
-<!--pages/myLike/index.wxml-->
-<text>pages/myLike/index.wxml</text>
+<view id="mineLike">
+
+    <!-- 已登陆的整体结构。 -->
+    <view wx:if="{{ userInfo }}">
+      
+      <!-- 右上角年龄标签。 -->
+      <view class="tab">
+        <van-button icon="{{ ageSort === 'desc' ? 'arrow-down' : 'arrow-up' }}" round type="info" size="small" color="#07c160" bind:tap="changeSort">年龄</van-button>
+      </view>
+  
+      <!-- 空数组也会被判断为真，所以用数组的长度进行判断。 -->
+      <view wx:if="{{ animalLikeList.length > 0 }}"> 
+        <!-- 遍历关注列表，使用封装的自定义组件ani-card。 -->
+        <ani-card wx:for="{{ animalLikeList }}" wx:key="index" animalData="{{ item }}"> <!-- 在父组件中使用ani-card子组件，animalData是父组件需要向子组件传递的数据。 -->
+          <van-icon color="#07c160" slot="icon" name="medal-o" /> <!-- 指明插槽的名字为icon。 -->
+          <van-tag color="#07c160" plain round slot="tag">{{ item.age }}个月</van-tag> <!-- 指明插槽的名字为tag。 -->
+        </ani-card>
+      </view>
+      <!-- 关注列表数组的长度等于0。 -->
+      <van-empty wx:else style="text-align: center;" description="还未关注任何宠物" />
+  
+    </view>
+  
+  
+    <!-- 未登陆的整体结构。 -->
+    <van-empty wx:else style="text-align: center;" image="error" description="登录后查看关注信息" /> <!-- image="error"表示提示类型。 -->
+</view>

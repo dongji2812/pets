@@ -61,7 +61,8 @@ Page({
   logout() {
     wx.clearStorage() //清空浏览器本地存储，删除data中数据，但不会影响数据库。
     this.setData({
-      userInfo: null
+      userInfo: null,
+      avatarUrl: defaultAvatarUrl
     })    
   },
 

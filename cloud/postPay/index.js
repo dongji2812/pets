@@ -9,7 +9,7 @@ const userInfo = db.collection('userInfo')
 const goods = db.collection('goods')
 
 exports.main = async (event) => {
-  const { payData, userId, totalPrice, animalId } = event
+  const { userId, animalId, payData, totalPrice } = event
 
   const user = await userInfo.doc(userId).get()
 
@@ -25,7 +25,7 @@ exports.main = async (event) => {
   */
   const noGoods = data.filter(item => {
     const find = payData.find(v => v._id === item._id) //find方法返回第一个符合条件的数据，对象的形式。
-    return find && find.num > item.amount  //return布尔值。
+    return find && find.value > item.amount  //return布尔值。
   })
 
   if(noGoods.length > 0){
@@ -39,7 +39,7 @@ exports.main = async (event) => {
   /* 2、判断余额。其实微信端会帮助我们判断。 */
   const total = data.reduce((pre, item) => {
     const find = payData.find(v => v._id === item._id) //find方法返回第一个符合条件的数据，对象的形式。
-    return pre += (item.price * find.num)
+    return pre += (item.price * find.value)
   }, 0)
 
   if(totalPrice !== total){ //判断前端总价totalPrice和后端总价total是否相等。数据库价格是否动态变化。 
@@ -69,7 +69,7 @@ exports.main = async (event) => {
   // 商品购买数量可能不一样，所以需要对每一个商品单独操作。
   const updataArray = payData.map(item => goods.doc(item._id).update({ //map方法中每个元素返回一个promise对象，最后得到promise数组updataArray。
     data: {
-      amount: db.command.inc(-item.num)
+      amount: db.command.inc(-item.value)
     }
   }))
   await Promise.allSettled(updataArray) //await后是一个promise数组。Promise.allSettled比Promise.all更好用，防止异步任务失败后有报错。

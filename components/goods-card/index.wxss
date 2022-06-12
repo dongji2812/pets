@@ -10,6 +10,12 @@
     margin: 0 20rpx;
 }
   
-.ani-goods-card{
+.ani-goods-card{ /* 优先级比默认高。 */
     background-color: #fff;
+}
+
+.van-stepper{
+    position: absolute;
+    right: 0rpx;
+    top: 75%;
 }

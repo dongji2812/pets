@@ -1,3 +1,12 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "我的云养",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#07c160",
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "ani-card": "/components/animal-card/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-empty": "@vant/weapp/empty/index"
+  }
 }

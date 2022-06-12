@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "爱宠详情",
   "navigationBarTextStyle": "white",
-  "navigationBarBackgroundColor": "#ff6034",
+  "navigationBarBackgroundColor": "#07c160",
   "usingComponents": {
     "van-button": "@vant/weapp/button/index",
     "van-icon": "@vant/weapp/icon/index",

@@ -1,2 +1,15 @@
-<!--pages/myInfo/index.wxml-->
-<text>pages/myInfo/index.wxml</text>
+<view id="userInfo">
+
+    <!-- 头像。 -->
+    <view class="header">
+      <image bind:tap="chooseMedia" class="img" src="{{ showAvatarUrl }}" />
+    </view>
+  
+    <!-- 输入框。 -->
+    <van-cell-group>
+      <van-field model:value="{{ nickName }}" label="昵称" placeholder="请输入用户名" input-align="right" /> <!-- model:value=""双向绑定。 -->
+    </van-cell-group>
+  
+    <!-- 提交按钮。 -->
+    <van-button bind:tap="submit" block round class="btn" color="#07c160"> 修改信息 </van-button>
+</view>

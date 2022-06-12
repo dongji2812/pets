@@ -2,11 +2,11 @@
   "pages": [
     "pages/home/index",
     "pages/mine/index",
-    "pages/myCloudRalse/index",
-    "pages/myInfo/index",
-    "pages/myLike/index",
     "pages/animalInfo/index",
-    "pages/ralsePay/index"
+    "pages/ralsePay/index",
+    "pages/myCloudRalse/index",
+    "pages/myLike/index",
+    "pages/myInfo/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

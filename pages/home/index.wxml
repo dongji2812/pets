@@ -3,7 +3,7 @@
   <scroll-view scroll-y="{{true}}" style="height:{{windowHeight}}px" bind:scrolltolower="scrolltolower" refresher-enabled="{{true}}" refresher-triggered="{{triggered}}" bind:refresherrefresh="refresherrefresh">
     
     <!-- swiper轮播图区域。 -->
-    <swiper indicator-dots="{{ true }}" indicator-color="rgba(255,255,255, 0.4)" indicator-active-color="#ff6034" previous-margin="40rpx" next-margin="40rpx" circular="{{ true }}">
+    <swiper indicator-dots="{{ true }}" indicator-color="rgba(255,255,255, 0.4)" indicator-active-color="#07c160" previous-margin="40rpx" next-margin="40rpx" circular="{{ true }}">
       <block wx:for="{{ swiper }}" wx:key="index"> <!-- wx:key="*this"。这里是复制swiper得到的，*this是？ -->
         <swiper-item class="swiper-item">
           <image src="{{ item }}"></image>
@@ -13,7 +13,7 @@
 
     <!-- 选择宠物类型。 -->
     <view class="tab">
-      <van-button wx:for="{{tabList}}" wx:key="index" class="tab-item" round type="info" size="small" color="{{ active === item.id ? '#ff6034' : '#ccc'}}" bind:tap="setActive" data-id="{{ item.id }}">{{ item.title }}</van-button>
+      <van-button wx:for="{{tabList}}" wx:key="index" class="tab-item" round type="info" size="small" color="{{ active === item.id ? '#07c160' : '#ccc'}}" bind:tap="setActive" data-id="{{ item.id }}">{{ item.title }}</van-button>
     </view>
 
     <!-- 循环展示出宠物信息的区域。 -->

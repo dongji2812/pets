@@ -6,9 +6,9 @@
       <view class="header-right">
         <view class="header-right-title">
           {{ animalInfo.title }}
-          <van-tag plain round slot="tag" type="primary" style="margin-right:10rpx;">{{ animalInfo.varieties }}</van-tag>
-          <van-tag plain round slot="tag" color="#ff6034">{{ animalInfo.age }}个月</van-tag> <!-- 这两个tag标签不用加slot吧？ -->
-          <!-- plain表示空心. -->
+          <van-tag plain round type="primary" style="margin-right:10rpx;">{{ animalInfo.varieties }}</van-tag>
+          <van-tag plain round color="#07c160">{{ animalInfo.age }}个月</van-tag>
+          <!-- round表示圆形，plain表示空心. -->
         </view>
         <view class="header-right-text">我急需的物品[ 猫粮狗粮小玩具 ]</view>
       </view>
@@ -21,7 +21,7 @@
       <!-- 父组件中设置自定义事件setCheckedNum，父组件中向子组件传入该自定义事件，等待子向父传递数据，在js文件中处理得到的数据。子向父通信。 -->
     </view>
   
-    <van-submit-bar price="{{ totalPrice }}" button-text="提交订单" bind:submit="pay" tip="{{ true }}"> <!-- submit提交时，触发事件。 -->
-      <radio bind:tap="changeChecked" checked="{{ checked }}" color="#ff6034"/>全选 <!-- radio是单选按钮。 -->
+    <van-submit-bar price="{{ totalPrice }}" button-text="提交订单" bind:submit="pay"> <!-- submit提交时，触发事件。 -->
+      <radio bind:tap="changeChecked" checked="{{ checked }}" color="#07c160"/>全选 <!-- radio是单选按钮。 -->
     </van-submit-bar>
 </view>

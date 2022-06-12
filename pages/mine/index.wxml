@@ -5,6 +5,7 @@
     <!-- van-notice-bar是通知栏；left-icon表示左侧图标，这里是喇叭的图标。 -->
     <view wx:if="{{ userInfo }}">
       <image class="image" src="{{ userInfo.avatarUrl }}" />
+      <view wx:if="{{ userInfo.nickName }}" class="name"> {{ userInfo.nickName }} </view>
     </view>
     <view wx:else > <!-- 自己在微信开放文档看的获取头像的最新版方法。 -->
       <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar"> <!-- chooseavatar表示用户选择头像事件。 -->
@@ -33,9 +34,9 @@
   <view class="group">
     <!-- Cell是单元格，CellGroup可以为Cell提供上下外边框。-->
     <van-cell-group>
+      <van-cell icon="like-o" title="我的关注" bind:tap="navigateTo" data-url="myLike" is-link />
       <van-cell icon="shop-collect-o" title="我的云养" bind:tap="navigateTo" data-url="myCloudRalse" is-link /> 
       <!-- data-xx是传递给事件对象的属性；is-link属性表示单元格右侧显示箭头。-->
-      <van-cell icon="like-o" title="我的关注" bind:tap="navigateTo" data-url="myLike" is-link />
       <van-cell icon="cart-circle-o" title="我的订单" is-link />
     </van-cell-group>
   </view>

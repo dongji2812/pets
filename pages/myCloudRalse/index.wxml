@@ -1,2 +1,21 @@
-<!--pages/cloudRalse/index.wxml-->
-<text>pages/cloudRalse/index.wxml</text>
+<view id="cloudRalse">
+    <view wx:if="{{ userInfo }}">
+      <view class="tab">
+        <van-search model:value="{{ text }}" placeholder="请输入搜索关键词" use-action-slot bind:search="getRalseList">
+        <!-- 通过model:value实现简易双向数据流，text是data中的值，data中的值控制表单中的值，data中的text数据会随表单的值实时更新。-->
+        <!-- 用户点击键盘上的搜索或回车时，触发该事件bind:search="getRalseList"。 -->  
+
+          <!-- 自定义搜索框右侧按钮。 -->
+          <view slot="action" bind:tap="getRalseList">搜索</view> <!-- 用户点击这里的搜索按钮时，触发该事件bind:tap="getRalseList"。 -->
+        </van-search>
+      </view>
+      <view wx:if="{{ animalList.length > 0 }}">
+        <ani-card wx:for="{{ animalList }}" wx:key="index" animalData="{{ item }}">
+          <van-icon color="#07c160" slot="icon" name="medal-o" /> <!-- 使用自定义组件中的插槽。 -->
+          <van-tag plain round slot="tag" color="#07c160">{{ item.age }}个月</van-tag> <!-- 使用自定义组件中的插槽。 -->
+        </ani-card>
+      </view>
+      <van-empty wx:else style="text-align: center;" description="暂无云养数据" />
+    </view>
+    <van-empty wx:else style="text-align: center;" image="error" description="登录后查看云养信息" />
+</view>

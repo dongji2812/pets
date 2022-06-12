@@ -1,4 +1,3 @@
-// pages/ralsePay/index.js
 Page({
   data: {
     userId: '',
@@ -24,12 +23,18 @@ Page({
 
   /* 获取该宠物信息。 */
   async getAnimalInfo(){
-    const { animalId } = this.data
+    const { animalId, userId } = this.data
 
-    const { data } = await wx.cloud.database().collection('animal').doc(animalId).get()
+    const { result: { data } } = await wx.cloud.callFunction({ //得到getAnimalInfo函数的返回值。包含like属性。
+      name: 'getAnimalInfo',
+      data: {
+        animalId,
+        userId
+      }
+    })
     //格式是{data, errMsg}，data是对象的形式，包含众多属性和属性值。
 
-    console.log(data)
+    //console.log(data)
     this.setData({
       animalInfo: data
     })
@@ -54,9 +59,9 @@ Page({
   
   /* 点击全选按钮的回调。 */
   changeChecked(){
-    const { checked, goodsList } = this.data //取出全选按钮的状态，对状态取反。
+    const { checked, goodsList } = this.data 
     
-    goodsList.forEach((item) => { //对goodsList数组中每一项元素item设置是否选中。map方法不用写返回值吗？
+    goodsList.forEach((item) => { //对goodsList数组中每一项元素item设置是否选中。
       if(item.amount > 0){ 
         //有数量可以购买时才进行选中和不选中的操作，这样计算价格才对。否则没有数量的商品checked设置为true，计算价格时会包含在内。
         item.checked = !checked //每个元素和全选按钮的属性保持一致。
@@ -108,7 +113,7 @@ Page({
     const payData = goodsList.filter(item => item.checked).map(item => ({ 
     //先对商品数组进行筛选，然后根据筛选后的每个数组元素变形为一个对象，返回新数组payData。
       _id: item._id, //购买商品id。
-      num: item.value //购买商品数量。
+      value: item.value //购买商品数量。
     }))
 
     if(payData.length > 0){

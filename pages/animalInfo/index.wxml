@@ -11,32 +11,32 @@
     <view class="header">
       <view class="header-title">{{animalInfo.title}}</view>
       <van-button class="header-btn" open-type="share" icon="share-o" plain /> <!--点击按钮可以实现转发功能。 -->
-      <!-- vant的组件，属性open-type="share"，plain表示为朴素按钮。-->
+      <!-- vant的组件，属性open-type="share"，plain表示为朴素按钮/空心按钮。-->
     </view>
   
     <view class="info-card">
       <view>
-        <van-icon color="#ff6034" name="medal-o" />
+        <van-icon color="#07c160" name="medal-o" />
         {{ animalInfo.varieties }}
       </view>
       <view>
-        <van-icon color="#ff6034" name="medal-o" />
+        <van-icon color="#07c160" name="medal-o" />
         {{ animalInfo.sex ? '男' : '女'}}
       </view>
       <view>
-        <van-icon color="#ff6034" name="medal-o" />
+        <van-icon color="#07c160" name="medal-o" />
         {{ animalInfo.age }}个月
       </view>
       <view>
-        <van-icon color="#ff6034" name="medal-o" />
+        <van-icon color="#07c160" name="medal-o" />
         {{ animalInfo.immune ? '已' : '未' }}注射
       </view>
       <view>
-        <van-icon color="#ff6034" name="medal-o" />
+        <van-icon color="#07c160" name="medal-o" />
         {{ animalInfo.insectRepellent ? '已' : '未' }}驱虫
       </view>
       <view>
-        <van-icon color="#ff6034" name="medal-o" />
+        <van-icon color="#07c160" name="medal-o" />
         {{ animalInfo.sterilization ? '已' : '未' }}绝育
       </view>
     </view>

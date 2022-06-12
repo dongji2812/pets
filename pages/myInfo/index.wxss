@@ -1,1 +1,24 @@
-/* pages/myInfo/index.wxss */
+#userInfo{
+    box-sizing: border-box;
+    padding: 40rpx;
+  }
+  
+.header{
+    height: 240rpx;
+    width: 100%;
+}
+  
+.img{
+    width: 176rpx;
+    height: 176rpx;
+    border-radius: 50%;
+    position: absolute;
+    top: 20rpx;
+    left: 50%;
+    margin-left: -88rpx;
+}
+  
+.btn{
+    position: relative;
+    top: 176rpx;
+}

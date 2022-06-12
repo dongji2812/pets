@@ -1,4 +1,3 @@
-// components/goods-card/index.js
 Component({
   /**
    * 组件的属性列表
@@ -8,8 +7,6 @@ Component({
   },
 
   methods: {
-    /* 以下两个函数都是商品改变时的回调函数。 */
-
     /* 点击 选择商品的单选框 的回调。*/
     changeChecked(){
       const { goodsData } = this.data
@@ -40,4 +37,5 @@ Component({
       })
     }
   }
+  
 })
